@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6C5CE7" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <title>PulseFlow – Kegel Trainer</title>
+    <style>
+      :root{
+        --bg:#FFFFFF; --surface:#F7F7FB; --text:#111827; --muted:#6b7280; --primary:#6C5CE7; --accent:#00C2A8;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#0F1115; --surface:#141821; --text:#E5E7EB; --muted:#9ca3af; --primary:#8E82FF; --accent:#19D3C5;
+        }
+      }
+      [data-theme="light"]{ --bg:#FFFFFF; --surface:#F7F7FB; --text:#111827; --muted:#6b7280; --primary:#6C5CE7; --accent:#00C2A8; }
+      [data-theme="dark"]{ --bg:#0F1115; --surface:#141821; --text:#E5E7EB; --muted:#9ca3af; --primary:#8E82FF; --accent:#19D3C5; }
+
+      html, body, #root { height: 100%; margin:0; }
+      body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
+      .btn { background: var(--primary); color:white; border:none; border-radius: 14px; padding:12px 16px; font-weight:600; }
+      .btn.secondary{ background: var(--surface); color: var(--text); border:1px solid rgba(0,0,0,0.08) }
+      .card { background: var(--surface); border-radius: 16px; padding:16px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+      .row { display:flex; gap:12px; align-items:center; }
+      .col { display:flex; flex-direction:column; gap:8px; }
+      .tabs { position: fixed; bottom: 0; left:0; right:0; border-top:1px solid rgba(0,0,0,.08); background:var(--surface); display:flex; }
+      .tabs button{ flex:1; padding:10px 6px; background:transparent; border:none; color:var(--text); font-size:12px; }
+      .progress-bar{ position:fixed; bottom:56px; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--accent), var(--primary)); transform-origin:left; transform:scaleX(var(--p,0)); }
+      .toggle { display:inline-flex; gap:8px; align-items:center; cursor:pointer }
+      .toggle input{ width:38px; height:22px; appearance:none; background:#c7c7cf; border-radius:999px; position:relative; outline:none; transition:.2s }
+      .toggle input:checked{ background:var(--primary) }
+      .toggle input:before{ content:""; position:absolute; width:18px; height:18px; top:2px; left:2px; border-radius:50%; background:white; transition:.2s }
+      .toggle input:checked:before{ transform: translateX(16px) }
+      .h1{ font-size:22px; font-weight:800 }
+      .h2{ font-size:18px; font-weight:700 }
+      .muted{ color:var(--muted) }
+      .grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+      .circle{
+        width: 260px; height:260px; border-radius:50%; margin: 0 auto; display:grid; place-items:center;
+        background: radial-gradient(closest-side, rgba(108,92,231,.15), transparent 70%);
+      }
+      .digits{ font-size:48px; font-weight:800 }
+      .phase{ letter-spacing: .15em; font-weight:700; font-size:13px; }
+      .badge{ background:linear-gradient(90deg, var(--accent), var(--primary)); color:white; padding:8px 12px; border-radius:999px; font-weight:700; font-size:12px }
+      .link{ color:var(--primary); text-decoration:none }
+      .safe{ font-size:12px }
+      .container{ max-width:980px; margin:0 auto; padding:16px; padding-bottom:88px }
+      .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
